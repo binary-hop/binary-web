@@ -15,6 +15,8 @@ const { Events } = Scroll;
 const { scrollSpy } = Scroll;
 
 const Home: NextPage = () => {
+  const { isOpen, onOpen, onClose } = useDisclosure();
+
   useEffect(() => {
     scrollSpy.update();
     return () => {
@@ -22,8 +24,6 @@ const Home: NextPage = () => {
       Events.scrollEvent.remove('end');
     };
   }, []);
-
-  const { isOpen, onOpen, onClose } = useDisclosure();
 
   return (
     <>
@@ -38,7 +38,7 @@ const Home: NextPage = () => {
             <SectionMain />
           </Element>
           <Element name="projects">
-            <SectionProjects />
+            <SectionProjects onOpenContactModal={onOpen} />
           </Element>
           <Element name="team">
             <SectionTeam />
@@ -76,7 +76,7 @@ const Home: NextPage = () => {
                 <Image src="/icons/instagram.svg" alt="Instagram" h="30px" w="30px" />
                 <Link passHref href="https://www.instagram.com/b8.software/">
                   <chakra.a target="_blank" rel="noopener noreferrer" color="green">
-                    b8.software
+                    @b8.software
                   </chakra.a>
                 </Link>
               </HStack>
@@ -90,7 +90,6 @@ const Home: NextPage = () => {
               </HStack>
             </VStack>
           </ModalBody>
-
           <ModalFooter />
         </ModalContent>
       </Modal>
