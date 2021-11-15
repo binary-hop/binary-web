@@ -110,7 +110,7 @@ export function SectionTeam() {
             </HStack>
           </Box>
           <Box minW={isSmall ? '100%' : '12vw'}>
-            <Image src="https://media-exp1.licdn.com/dms/image/C4D03AQF__xq8CVCjtA/profile-displayphoto-shrink_800_800/0/1630441017075?e=1642636800&v=beta&t=MlSL5AJuZR2RVl3O7jp4uxeQ0QTDkQ82Uk4CJf3Jd-8" alt="Giovana Silva" h="150px" minW="150px" borderRadius="50%" objectFit="cover" marginX="auto" />
+            <Image src="/team/giovana.silva.jpeg" alt="Giovana Silva" h="150px" minW="150px" borderRadius="50%" objectFit="cover" marginX="auto" />
             <Text fontWeight="600" color="blue.100" fontFamily="barlow" fontSize="24px" minW="150px" textAlign="center" pt="20px">
               Giovana Silva
             </Text>
