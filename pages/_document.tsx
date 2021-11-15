@@ -113,6 +113,13 @@ export default class MyDocument extends Document {
 
           <meta name="theme-color" content="#ffffff" />
           <link rel="manifest" href="/favicons/manifest.json" />
+          <style global jsx>
+            {`
+                html {
+                    scroll-behavior: smooth;
+                  }
+            `}
+          </style>
         </Head>
         <body>
           <Main />
