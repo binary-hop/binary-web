@@ -1,9 +1,9 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import type { NextPage } from 'next';
 import Link from 'next/link';
-import { useRef, useEffect } from 'react';
+import { useEffect } from 'react';
 import Head from 'next/head';
-import { chakra, Flex, useDisclosure, HStack, Modal, Text, VStack, ModalOverlay, ModalContent, ModalFooter, Image, ModalHeader, ModalCloseButton, ModalBody, Box } from '@chakra-ui/react';
+import { chakra, Flex, useDisclosure, HStack, Modal, VStack, ModalOverlay, ModalContent, ModalFooter, Image, ModalHeader, ModalCloseButton, ModalBody } from '@chakra-ui/react';
 import * as Scroll from 'react-scroll';
 import { Header } from '../components/Header';
 import { SectionMain } from '../components/Section.main';
