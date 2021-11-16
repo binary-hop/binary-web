@@ -10,9 +10,16 @@ export function SectionProjects({ onOpenContactModal }: SectionProjectsProps) {
     xl: false,
   });
 
+  const illustrationWidth = useBreakpointValue({
+    base: '100%',
+    sm: '75%',
+    md: '55%',
+    lg: '50%',
+  });
+
   return (
-    <Flex height="100vh" flexDirection={isMobile ? 'column' : 'row'} justify={isMobile ? 'center' : 'space-between'} align="center" paddingX={isMobile ? '20px' : '80px'}>
-      <Image src="/illustrations/empty-projects.svg" alt="Hop logo" w={isMobile ? '60%' : ['40%', '50%']} pb={isMobile ? '3rem' : ''} />
+    <Flex height="100vh" flexDirection={isMobile ? 'column' : 'row'} justify={isMobile ? 'center' : 'space-between'} align="center" paddingX={isMobile ? '0px' : '80px'}>
+      <Image src="/illustrations/empty-projects.svg" alt="Hop logo" w={illustrationWidth} pb={isMobile ? '3rem' : ''} />
       <Flex flexDirection="column" pl={isMobile ? '0px' : '150px'}>
         <Text fontWeight="500" color="blue.100" textAlign={isMobile ? 'center' : 'left'} fontFamily="barlow" fontSize={isMobile ? '1.6rem' : ['1rem', '1.2rem', '1.4rem', '1.6rem', '1.8rem', '2rem']}>
           At now, we dont have a running project. 😕

@@ -1,13 +1,11 @@
-import { Box, Flex, HStack, Button, Text, Image, useBreakpointValue } from '@chakra-ui/react';
+import { Box, Flex, HStack, Text, Image, useBreakpointValue } from '@chakra-ui/react';
 import React from 'react';
 
 import * as Scroll from 'react-scroll';
+import { HeaderButton } from './HeaderButton';
+import { HeaderProps } from './types';
 
 const { Link } = Scroll;
-
-interface HeaderProps {
-  onOpenContactModal: () => void;
-}
 
 export function Header({ onOpenContactModal }: HeaderProps) {
   const isWideVersion = useBreakpointValue({
@@ -16,7 +14,15 @@ export function Header({ onOpenContactModal }: HeaderProps) {
   });
 
   return (
-    <Flex bgColor="background" h="10vh" w="100%" paddingX="40px" justify="space-between" position="fixed" boxShadow="md">
+    <Flex
+      bgColor="background"
+      h="10vh"
+      w="100%"
+      paddingX="40px"
+      justify="space-between"
+      position="fixed"
+      boxShadow="md"
+    >
       <HStack align="center" spacing="30px">
         <Link to="main" smooth duration={400}>
           <Box h="30px" w="30px" _hover={{ cursor: 'pointer' }}>
@@ -33,18 +39,12 @@ export function Header({ onOpenContactModal }: HeaderProps) {
       </HStack>
       <HStack spacing="24px">
         <Link to="projects" smooth duration={400}>
-          <Button variant="link" color="blue.100" fontFamily="barlow" fontWeight="400" _focus={{ outline: 'none' }} fontSize="1.4rem">
-            Projects
-          </Button>
+          <HeaderButton name="Projects" />
         </Link>
         <Link to="team" smooth duration={400}>
-          <Button variant="link" color="blue.100" fontFamily="barlow" fontWeight="400" _focus={{ outline: 'none' }} fontSize="1.4rem">
-            Team
-          </Button>
+          <HeaderButton name="Team" />
         </Link>
-        <Button onClick={onOpenContactModal} variant="link" color="green" fontFamily="barlow" fontWeight="400" _focus={{ outline: 'none' }} fontSize="1.4rem">
-          Contact
-        </Button>
+        <HeaderButton name="Contact" color="green" onClick={onOpenContactModal} />
       </HStack>
     </Flex>
   );
