@@ -140,7 +140,7 @@ export function SectionTeam() {
       </VStack>
       <Flex flexDirection={isMobile ? 'row' : 'column'} justify="space-between" height="8vh" w="100%">
         <HStack spacing="20px" justify={isSmall ? 'center' : ''}>
-          <Link passHref href="https://www.linkedin.com/in/andre-santi12/">
+          <Link passHref href="https://www.linkedin.com/company/binary-hop">
             <a target="_blank" rel="noopener noreferrer">
               <HStack alignItems="center">
                 <Image src="/icons/linkedin.svg" alt="Github" h="25px" w="25px" />
@@ -148,7 +148,7 @@ export function SectionTeam() {
               </HStack>
             </a>
           </Link>
-          <Link passHref href="https://instagram.com/mycattakeapicbetter">
+          <Link passHref href="https://www.instagram.com/b8.software/">
             <a target="_blank" rel="noopener noreferrer">
               <HStack>
                 <Image src="/icons/instagram.svg" alt="Github" h="25px" w="25px" />
