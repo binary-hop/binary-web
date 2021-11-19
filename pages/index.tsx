@@ -1,6 +1,3 @@
-/* eslint-disable react/destructuring-assignment */
-/* eslint-disable no-underscore-dangle */
-/* eslint-disable max-len */
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import type { GetStaticProps, GetStaticPropsContext, InferGetStaticPropsType, NextPage, NextPageContext } from 'next';
 import Link from 'next/link';
@@ -9,8 +6,6 @@ import Head from 'next/head';
 import { chakra, Flex, useDisclosure, HStack, Modal, VStack, ModalOverlay, ModalContent, ModalFooter, Image, ModalHeader, ModalCloseButton, ModalBody } from '@chakra-ui/react';
 import * as Scroll from 'react-scroll';
 import { useRouter } from 'next/router';
-import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
-import { SSRConfig } from 'next-i18next';
 import { Header } from '../components/Header';
 import { SectionMain } from '../components/Section.main';
 import { SectionProjects } from '../components/Section.projects';
@@ -20,16 +15,12 @@ const { Element } = Scroll;
 const { Events } = Scroll;
 const { scrollSpy } = Scroll;
 
-const Home = ({ _nextI18Next }: SSRConfig) => {
-// const Home = ({ context }: { context: GetStaticPropsContext }) => {
+const Home = ({ context }: { context: GetStaticPropsContext }) => {
   const { isOpen, onOpen, onClose } = useDisclosure();
-  // const { locale } = context;
-  const locale = _nextI18Next.initialLocale;
+  const { locale } = context;
 
   useEffect(() => {
     scrollSpy.update();
-    // console.log(props._nextI18Next.initialLocale);
-
     return () => {
       Events.scrollEvent.remove('begin');
       Events.scrollEvent.remove('end');
@@ -68,6 +59,7 @@ const Home = ({ _nextI18Next }: SSRConfig) => {
           <ModalHeader color="blue.100" fontFamily="barlow" fontSize="1.7rem">{locale === 'pt' ? 'Entre em contato!' : 'Get in touch!'}</ModalHeader>
           <ModalCloseButton color="blue.100" />
           <ModalBody color="blue.100" fontFamily="barlow" fontSize="1.3rem" fontWeight="300">
+
             {
               locale === 'pt' ? 'Iremos responder o mais rápido possível! 😄' : 'We will talk with you soon as possible! 😄'
             }
@@ -120,7 +112,7 @@ export default Home;
 export async function getStaticProps(context: GetStaticPropsContext) {
   return {
     props: {
-      ...(await serverSideTranslations('pt' as string, ['common'])),
+      context,
     },
   };
 }
