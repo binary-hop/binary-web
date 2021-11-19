@@ -24,10 +24,10 @@ export function SectionTeam() {
             {locale === 'pt' ? 'Nosso time' : 'Our time'}
           </Text>
           <Text fontWeight="400" color="blue.100" fontFamily="barlow" fontSize="20px" textAlign="center">
-            {locale === 'pt' ? 'Pessoas são a resposta' : 'People are the answer to'}
+            {locale === 'pt' ? 'Pessoas são a resposta para' : 'People are the answer to'}
             {' '}
             <chakra.span color="green">
-              {locale === 'pt' ? 'solucionar' : 'solve'}
+              {locale === 'pt' ? 'solucionar os' : 'solve'}
             </chakra.span>
             {' '}
             {locale === 'pt' ? 'seus problemas' : 'your problems!'}
