@@ -1,8 +1,11 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import { chakra, Flex, Image, Text, VStack, HStack, Box, useBreakpointValue } from '@chakra-ui/react';
 import Link from 'next/link';
+import { useRouter } from 'next/router';
 
 export function SectionTeam() {
+  const { locale } = useRouter();
+
   const isSmall = useBreakpointValue({
     base: true,
     xl: false,
@@ -18,14 +21,16 @@ export function SectionTeam() {
       <VStack spacing="10px" w="100%" align="flex-start" position="relative">
         <Box w="100%">
           <Text fontWeight="400" color="blue.100" fontFamily="barlow" fontSize="3.5rem" textAlign="center">
-            Our team
+            {locale === 'pt' ? 'Nosso time' : 'Our time'}
           </Text>
           <Text fontWeight="400" color="blue.100" fontFamily="barlow" fontSize="20px" textAlign="center">
-            People are the answer to
+            {locale === 'pt' ? 'Pessoas são a resposta para' : 'People are the answer to'}
             {' '}
-            <chakra.span color="green">solve</chakra.span>
+            <chakra.span color="green">
+              {locale === 'pt' ? 'solucionar os' : 'solve'}
+            </chakra.span>
             {' '}
-            your problems!
+            {locale === 'pt' ? 'seus problemas' : 'your problems!'}
           </Text>
         </Box>
         <HStack
@@ -73,7 +78,7 @@ export function SectionTeam() {
               Vinícius Alexandre
             </Text>
             <Text fontWeight="500" color="green" fontFamily="barlow" fontSize="16px" textAlign="center" pt="0px">
-              Software Developer
+              {locale === 'pt' ? 'Cofundador & Desenvolvedor de software' : 'Cofounder & Software Developer'}
             </Text>
             <HStack w="100%" spacing="10px" justifyContent="center" minH="60px" pt="25px">
               {/* <Link passHref href="https://github.com/mycatdoitbetter">
@@ -99,7 +104,7 @@ export function SectionTeam() {
               Johnathan Drumond
             </Text>
             <Text fontWeight="500" color="green" fontFamily="barlow" fontSize="16px" textAlign="center" pt="0px">
-              Software and IoT Developer
+              {locale === 'pt' ? 'Desenvolvedor de Software e IoT' : 'Software and IoT Developer'}
             </Text>
             <HStack w="100%" spacing="10px" justifyContent="center" minH="60px" pt="25px">
               <Link passHref href="https://www.linkedin.com/in/jonathan-drumond-b74796129/">
@@ -158,7 +163,9 @@ export function SectionTeam() {
           </Link>
         </HStack>
         <HStack justify={isSmall ? 'center' : ''} pb={isSmall ? '10px' : '20px'}>
-          <Text color="blue.100" fontWeight="300" fontFamily="barlow">Developed by b8.software</Text>
+          <Text color="blue.100" fontWeight="300" fontFamily="barlow">
+            {locale === 'pt' ? 'Desenvolvido by b8.software  ' : 'Developed by b8.software  '}
+          </Text>
           <Image src="/icons/green-hop.svg" alt="Github" h="27px" w="27px" />
         </HStack>
       </Flex>

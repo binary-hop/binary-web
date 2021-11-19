@@ -1,10 +1,11 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
-import type { NextPage } from 'next';
+import type { GetStaticProps, GetStaticPropsContext, InferGetStaticPropsType, NextPage, NextPageContext } from 'next';
 import Link from 'next/link';
 import { useEffect } from 'react';
 import Head from 'next/head';
 import { chakra, Flex, useDisclosure, HStack, Modal, VStack, ModalOverlay, ModalContent, ModalFooter, Image, ModalHeader, ModalCloseButton, ModalBody } from '@chakra-ui/react';
 import * as Scroll from 'react-scroll';
+import { useRouter } from 'next/router';
 import { Header } from '../components/Header';
 import { SectionMain } from '../components/Section.main';
 import { SectionProjects } from '../components/Section.projects';
@@ -14,8 +15,9 @@ const { Element } = Scroll;
 const { Events } = Scroll;
 const { scrollSpy } = Scroll;
 
-const Home: NextPage = () => {
+const Home = ({ context }: { context: GetStaticPropsContext }) => {
   const { isOpen, onOpen, onClose } = useDisclosure();
+  const { locale } = context;
 
   useEffect(() => {
     scrollSpy.update();
@@ -47,12 +49,20 @@ const Home: NextPage = () => {
       </Flex>
 
       <Modal blockScrollOnMount={false} isOpen={isOpen} onClose={onClose} isCentered>
-        <ModalOverlay />
+        <ModalOverlay
+          css={{
+           backdropFilter: 'blur(3px)',
+           msFilter: 'blur(3px)',
+          }}
+        />
         <ModalContent bgColor="background">
-          <ModalHeader color="blue.100" fontFamily="barlow" fontSize="1.7rem">Get in touch!</ModalHeader>
+          <ModalHeader color="blue.100" fontFamily="barlow" fontSize="1.7rem">{locale === 'pt' ? 'Entre em contato!' : 'Get in touch!'}</ModalHeader>
           <ModalCloseButton color="blue.100" />
           <ModalBody color="blue.100" fontFamily="barlow" fontSize="1.3rem" fontWeight="300">
-            We will talk with you soon as possible! 😄
+
+            {
+              locale === 'pt' ? 'Iremos responder o mais rápido possível! 😄' : 'We will talk with you soon as possible! 😄'
+            }
           </ModalBody>
           <ModalBody color="blue.100" pt="40px">
             <VStack spacing="20px" w="100%" align="flex-start">
@@ -98,3 +108,11 @@ const Home: NextPage = () => {
 };
 
 export default Home;
+
+export async function getStaticProps(context: GetStaticPropsContext) {
+  return {
+    props: {
+      context,
+    },
+  };
+}
