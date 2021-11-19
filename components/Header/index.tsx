@@ -22,14 +22,14 @@ export function Header({ onOpenContactModal }: HeaderProps) {
       bgColor="background"
       h="10vh"
       w="100%"
-      paddingX="40px"
+      paddingX={isWideVersion ? '40px' : '20px'}
       justify="space-between"
       position="fixed"
       boxShadow="md"
     >
       <HStack align="center" spacing="30px">
         <Link to="main" smooth duration={400}>
-          <Box h="30px" w="30px" transition="all .3s ease-in-out" _hover={{ cursor: 'pointer', transform: 'scale(1.05)' }}>
+          <Box h={isWideVersion ? '30px' : '25px'} w={isWideVersion ? '30px' : '25px'} transition="all .3s ease-in-out" _hover={{ cursor: 'pointer', transform: 'scale(1.05)' }}>
             <Image src="/icons/hop.svg" alt="Hop logo" />
           </Box>
         </Link>
