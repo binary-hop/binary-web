@@ -27,10 +27,10 @@ export function SectionTeam() {
             {locale === 'pt' ? 'Pessoas são a resposta para' : 'People are the answer to'}
             {' '}
             <chakra.span color="green">
-              {locale === 'pt' ? 'solucionar os' : 'solve'}
+              {locale === 'pt' ? 'solucionar' : 'solve'}
             </chakra.span>
             {' '}
-            {locale === 'pt' ? 'seus problemas' : 'your problems!'}
+            {locale === 'pt' ? 'os seus problemas' : 'your problems!'}
           </Text>
         </Box>
         <HStack
