@@ -164,7 +164,7 @@ export function SectionTeam() {
         </HStack>
         <HStack justify={isSmall ? 'center' : ''} pb={isSmall ? '10px' : '20px'}>
           <Text color="blue.100" fontWeight="300" fontFamily="barlow">
-            {locale === 'pt' ? 'Desenvolvido by b8.software  ' : 'Developed by b8.software  '}
+            {locale === 'pt' ? 'Desenvolvido por b8.software  ' : 'Developed by b8.software  '}
           </Text>
           <Image src="/icons/green-hop.svg" alt="Github" h="27px" w="27px" />
         </HStack>
